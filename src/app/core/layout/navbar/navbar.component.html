@@ -1,11 +1,11 @@
-<nav class="border-gray-100 px-2 sm:px-4 py-2.5 rounded">
-    <div class="container flex flex-wrap justify-between items-center mx-auto">
+<nav class="border-gray-100 px-4 py-8 rounded 2xl:mx-24">
+    <div class="flex flex-wrap justify-between mx-auto">
         <a href="#" class="flex items-center">
             <span class="self-center font-semibold whitespace-nowrap text-accentColor text-2xl">Naeem Khan</span>
         </a>
-        <div class="flex md:order-2">
+        <div class="flex lg:order-2">
             <button data-collapse-toggle="navbar-cta" type="button"
-                class="inline-flex items-center p-2 text-sm rounded-lg md:hidden focus:outline-none focus:ring-1 focus:ring-gray-100 text-gray-100 hover:bg-gray-700"
+                class="inline-flex items-center p-2 text-sm rounded-lg lg:hidden focus:outline-none focus:ring-1 focus:ring-gray-100 text-gray-100 hover:bg-gray-700"
                 aria-controls="navbar-cta" aria-expanded="false">
                 <span class="sr-only">Open main menu</span>
                 <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
@@ -16,24 +16,12 @@
                 </svg>
             </button>
         </div>
-        <div class="hidden justify-between items-center w-full md:flex md:w-auto md:order-1" id="navbar-cta">
+        <div class="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-2" id="navbar-cta">
             <ul
-                class=" flex flex-col p-4 mt-4 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0">
-                <li>
+                class=" flex flex-col p-4 mt-4 rounded-lg border border-gray-100 lg:flex-row lg:space-x-8 lg:mt-0 lg:text-sm lg:font-medium lg:border-0">
+                <li *ngFor="let navLink of navLinks">
                     <button href="#"
-                        class="w-full block py-2 pr-4 pl-3 rounded transition-colors duration-500 ease-in-out text-xl text-white hover:text-accentColor hover:bg-indigo-900 md:p-0 sm:hover:bg-transparent  md:bg-transparent lg:hover:bg-transparent">Home</button>
-                </li>
-                <li>
-                    <button href="#"
-                        class="w-full block py-2 pr-4 pl-3 rounded transition-colors duration-500 ease-in-out text-xl text-white hover:text-accentColor hover:bg-indigo-900 md:p-0 sm:hover:bg-transparent md:bg-transparent lg:hover:bg-transparent">About</button>
-                </li>
-                <li>
-                    <button href="#"
-                        class="w-full block py-2 pr-4 pl-3 rounded transition-colors duration-500 ease-in-out text-xl text-white hover:text-accentColor hover:bg-indigo-900 md:p-0 sm:hover:bg-transparent md:bg-transparent lg:hover:bg-transparent">Projects</button>
-                </li>
-                <li>
-                    <button href="#"
-                        class="w-full block py-2 pr-4 pl-3 rounded transition-colors duration-500 ease-in-out text-xl text-white hover:text-accentColor hover:bg-indigo-900 md:p-0 sm:hover:bg-transparent  md:bg-transparent lg:hover:bg-transparent">Contact</button>
+                        class="w-full block py-2 pr-4 pl-3 rounded transition-colors duration-500 ease-in-out text-xl text-white hover:text-accentColor hover:bg-indigo-900 lg:p-0 lg:bg-transparent lg:hover:bg-transparent">{{navLink.name}}</button>
                 </li>
             </ul>
         </div>
