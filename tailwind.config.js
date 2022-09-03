@@ -24,6 +24,7 @@ module.exports = {
             bgColor: '#353353',
             btnBg: '#ff4c60',
             accentColor: '#ffd15c',
+            secondaryColor: '#6C63FF',
         },
         container: {
             center: true,
