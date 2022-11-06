@@ -102,7 +102,7 @@
 
             <!-- Right Side -->
             <div class="flex p-6 w-full lg:ml-36 text-gray-200 bg-bgSecondary rounded-lg shadow-md">
-                I am Naeem Khan, a web developer working in Dubai, United Arab Emirates. I have more than one and a half years of professional experience, as well as multiple years of experience gained working on open source applications. My main stack is Django, PostgreSQL, Angular, and I have relevant deployment experinece for my applications on Heroku/Digital Ocean/Azure.
+                I am Naeem Khan, a full-stack web developer working in Dubai, United Arab Emirates. I have more than one and a half years of professional experience working as a web developer, as well as multiple years of experience gained working on open source applications. My preferred language of choice is Python, and my main stack is Django, PostgreSQL, Angular, and I have relevant deployment experinece for my applications on Heroku/Digital Ocean/Azure.
             </div>
             <!-- Right Side -->
         </div>
@@ -252,5 +252,36 @@
         <h1 class="text-gray-200 text-4xl text-center lg:text-left mb-10 lg:ml-3">Projects</h1>
     </section>
     <!-- Projects Section Ends Here -->
+
+    <!-- Contact Section Starts Here -->
+    <section class="mt-10 px-4 py-8 2xl:mx-44">
+        <h1 class="text-gray-200 text-4xl text-center lg:text-left mb-10 lg:ml-3">Reach Out</h1>
+        <div class="flex flex-col lg:flex-row lg:gap-14">
+            <div class="text-gray-300 text-center lg:text-start w-full">
+                <h1 class="text-lg">Send me a message by filling out the form</h1>
+                <h5>You can also <a class="text-btnBg hover:text-accentColor transition-colors duration-500 ease-in-out" href="mailto:admin@naeemkhan.dev">email me</a> instead</h5>
+            </div>
+            <div class="mt-10 lg:mt-0 w-full block p-6 bg-bgSecondary rounded-lg shadow-md">
+                <form>
+                    <div class="relative z-0 mb-6 w-full group">
+                        <input type="text" name="name" id="name" class="block py-2.5 px-0 w-full text-sm text-gray-400 bg-transparent border-0 border-b-2 border-gray-400 appearance-none focus:outline-none focus:ring-0 focus:border-accentColor peer" placeholder=" " required />
+                        <label for="name" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-accentColor peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Full Name</label>
+                    </div>
+                    <div class="relative z-0 mb-6 w-full group">
+                        <input type="email" name="email" id="email" class="block py-2.5 px-0 w-full text-sm text-gray-400 bg-transparent border-0 border-b-2 border-gray-400 appearance-none focus:outline-none focus:ring-0 focus:border-accentColor peer" placeholder=" " required />
+                        <label for="email" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-accentColor peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Email Address</label>
+                    </div>
+                    <div class="relative z-0 mb-6 w-full group">
+                        <textarea type="textarea" rows=6 name="message" id="message" class="block py-2.5 px-0 w-full text-sm text-gray-400 bg-transparent border-0 border-b-2 border-gray-400 appearance-none focus:outline-none focus:ring-0 focus:border-accentColor peer" placeholder=" " required></textarea>
+                        <label for="message" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-accentColor peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Message</label>
+                    </div>
+                    <a href="#" class="mt-3 bg-btnBg text-gray-100 rounded-lg p-3 hover:text-accentColor transition-colors duration-500 ease-in-out">Contact Me</a>
+                </form>
+            </div>
+
+        </div>
+    </section>
+    <!-- Contact Section Ends Here -->
+
     <app-footer></app-footer>
 </div>
