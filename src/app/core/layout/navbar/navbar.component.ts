@@ -14,6 +14,7 @@ export class NavbarComponent implements OnInit {
         this.navLinks = [
             { name: 'Home', url: '#' },
             { name: 'About', url: '#' },
+            { name: 'Experience', url: '#' },
             { name: 'Projects', url: '#' },
             { name: 'Contact', url: '#' },
         ]

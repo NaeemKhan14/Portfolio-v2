@@ -22,6 +22,7 @@ module.exports = {
     theme: {
         colors: {
             bgColor: '#353353',
+            bgSecondary: '#302f4e',
             btnBg: '#ff4c60',
             accentColor: '#ffd15c',
             secondaryColor: '#6C63FF',
