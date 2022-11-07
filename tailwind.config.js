@@ -23,8 +23,10 @@ module.exports = {
         colors: {
             bgColor: '#353353',
             bgSecondary: '#302f4e',
+            bgSecondaryAlt: '#43426b',
             btnBg: '#ff4c60',
             accentColor: '#ffd15c',
+            accentColorSecondary: '#ffe7ab',
             secondaryColor: '#6C63FF',
         },
         container: {
@@ -41,7 +43,11 @@ module.exports = {
             sans: ['Rubik', 'sans-serif'],
             serif: ['Libre Baskerville', 'serif'],
         },
-        extend: {},
+        extend: {
+            height: {
+                '96': '40rem',
+            }
+        },
     },
     plugins: [
         require('flowbite/plugin')

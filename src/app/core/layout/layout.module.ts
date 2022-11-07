@@ -7,13 +7,15 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ProjectsComponent } from './projects/projects.component';
 
 @NgModule({
   declarations: [
     LayoutComponent,
     NavbarComponent,
     FooterComponent,
-    ContactFormComponent
+    ContactFormComponent,
+    ProjectsComponent
   ],
   imports: [
     CommonModule,
