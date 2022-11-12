@@ -1,3 +1,5 @@
+[![Development CI](https://github.com/NaeemKhan14/Portfolio-v2/actions/workflows/node.js.yml/badge.svg?branch=development&event=status)](https://github.com/NaeemKhan14/Portfolio-v2/actions/workflows/node.js.yml)
+
 # PortfolioV2
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.3.
