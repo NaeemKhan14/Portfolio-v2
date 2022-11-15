@@ -1,4 +1,4 @@
-[![Development CI](https://github.com/NaeemKhan14/Portfolio-v2/actions/workflows/node.js.yml/badge.svg?branch=development&event=status)](https://github.com/NaeemKhan14/Portfolio-v2/actions/workflows/node.js.yml)
+[![Development CI](https://github.com/NaeemKhan14/Portfolio-v2/actions/workflows/node.js.yml/badge.svg)](https://github.com/NaeemKhan14/Portfolio-v2/actions/workflows/node.js.yml)
 
 # PortfolioV2
 
