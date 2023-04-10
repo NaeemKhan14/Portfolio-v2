@@ -15,7 +15,7 @@ COPY . .
 
 RUN npm run build -- --output-path=./dist/out --configuration production
 
-# Second stage build 
+# Second stage build
 FROM nginx:1.23.3-alpine
 
 # Remove default nginx website
@@ -23,3 +23,6 @@ RUN rm -rf /usr/share/nginx/html/*
 
 # Copy output directory from builder to nginx image.
 COPY --from=builder /usr/src/app/dist/out /usr/share/nginx/html
+
+# Expose the port where we can find this container running
+EXPOSE 80
