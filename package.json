@@ -27,7 +27,7 @@
     "zone.js": "~0.11.4",
     "json5": ">=2.2.2",
     "loader-utils": "3.2.1",
-    "engine.io": ">=6.2.1",
+    "engine.io": ">=6.4.2",
     "decode-uri-component": ">=0.4.1"
   },
   "devDependencies": {
@@ -51,7 +51,7 @@
     "typescript": "~4.7.2",
     "json5": ">=2.2.2",
     "loader-utils": "3.2.1",
-    "engine.io": ">=6.2.1",
+    "engine.io": ">=6.4.2",
     "decode-uri-component": ">=0.4.1"
   }
 }
