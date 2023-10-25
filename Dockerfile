@@ -16,7 +16,7 @@ COPY . .
 RUN npm run build -- --output-path=./dist/out --configuration production
 
 # Second stage build
-FROM nginx:1.25.1-alpine
+FROM nginx:1.25.3-alpine
 
 # Remove default nginx website
 RUN rm -rf /usr/share/nginx/html/*
