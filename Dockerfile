@@ -1,5 +1,5 @@
 # First stage build
-FROM node:20-alpine AS builder
+FROM node:23-alpine AS builder
 
 # Create application DIR
 WORKDIR /usr/src/app
@@ -16,7 +16,7 @@ COPY . .
 RUN npm run build -- --output-path=./dist/out --configuration production
 
 # Second stage build
-FROM nginx:1.26.1-alpine
+FROM nginx:1.27.3-alpine
 
 # Remove default nginx website
 RUN rm -rf /usr/share/nginx/html/*

@@ -1,255 +1,139 @@
-<!-- Main Wrapper -->
-<div class="flex flex-col lg:flex-row gap-10">
-    <!-- Project 1 -->
-    <div class="w-full lg:max-w-sm bg-bgSecondary rounded-lg overflow-hidden shadow-md hover:bg-bgSecondaryAlt">
-        <div class="flex flex-col">
-            <img class="p-8 rounded-t-lg w-full h-60 object-cover" src="../../../../assets/img/project_1.svg" alt="project image" />
-            <div class="px-5 pb-5">
-                <h5 class="text-xl font-semibold tracking-tight text-gray-200">Shift Schedule Helper</h5>
-                <div class="flex items-center mt-2.5 mb-5 text-gray-300">
-                    Android app for my work schedules
-                </div>
-                <div class="flex justify-end">
-                    <button type="button" data-modal-target="project-1-modal" data-modal-toggle="project-1-modal" class="transition-colors duration-500 ease-in-out text-white hover:text-bgColor bg-btnBg hover:bg-accentColor focus:ring-4 focus:outline-none focus:ring-accentColorSecondary font-medium rounded-lg text-sm px-5 py-2.5 text-center">Read more...</button>
-                </div>
-            </div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+    <!-- Loop through the projects -->
+    <div
+      *ngFor="let project of projects"
+      class="bg-bgSecondary rounded-lg overflow-hidden shadow-md hover:bg-bgSecondaryAlt"
+    >
+      <div class="flex flex-col">
+        <!-- Project Image -->
+        <img class="p-8 rounded-t-lg w-full h-60 object-cover" [src]="project.imageSrc" alt="{{ project.title }}" />
+  
+        <!-- Project Content -->
+        <div class="px-5 pb-5">
+          <h5 class="text-xl font-semibold tracking-tight text-gray-200">{{ project.title }}</h5>
+          <div class="flex items-center mt-2.5 mb-5 text-gray-300">{{ project.description }}</div>
+  
+          <div class="flex justify-end">
+            <button
+              type="button"
+              (click)="openProjectDetails(project)"
+              data-modal-target="project-modal"
+              data-modal-toggle="project-modal"
+              class="transition-colors duration-500 ease-in-out text-white hover:text-bgColor bg-btnBg hover:bg-accentColor focus:ring-4 focus:outline-none focus:ring-accentColorSecondary font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+            >
+              Read more...
+            </button>
+          </div>
         </div>
+      </div>
     </div>
-    <!-- Project 1 -->
-
-    <!-- Project 2 -->
-    <div class="w-full lg:max-w-sm bg-bgSecondary rounded-lg overflow-hidden shadow-md hover:bg-bgSecondaryAlt">
-        <div class="flex flex-col">
-            <img class="p-8 rounded-t-lg w-full h-60 object-cover" src="../../../../assets/img/project_2.svg" alt="project image" />
-            <div class="px-5 pb-5">
-                <h5 class="text-xl font-semibold tracking-tight text-gray-200">Athena</h5>
-                <div class="flex items-center mt-2.5 mb-5 text-gray-300">
-                    An ERP web application
-                </div>
-                <div class="flex justify-end">
-                    <button type="button" data-modal-target="project-2-modal" data-modal-toggle="project-2-modal" class="transition-colors duration-500 ease-in-out text-white hover:text-bgColor bg-btnBg hover:bg-accentColor focus:ring-4 focus:outline-none focus:ring-accentColorSecondary font-medium rounded-lg text-sm px-5 py-2.5 text-center">Read more...</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Project 2 -->
-
-    <!-- Project 3 -->
-    <div class="w-full lg:max-w-sm bg-bgSecondary rounded-lg overflow-hidden shadow-md hover:bg-bgSecondaryAlt">
-        <div class="flex flex-col">
-            <img class="p-8 rounded-t-lg w-full h-60 object-cover" src="../../../../assets/img/project_3.svg" alt="project image" />
-            <div class="px-5 pb-5">
-                <h5 class="text-xl font-semibold tracking-tight text-gray-200">MyAnimeList Helper</h5>
-                <div class="flex items-center mt-2.5 mb-5 text-gray-300">
-                    A REST Api to sort my anime list
-                </div>
-                <div class="flex justify-end">
-                    <button type="button" data-modal-target="project-3-modal" data-modal-toggle="project-3-modal" class="transition-colors duration-500 ease-in-out text-white hover:text-bgColor bg-btnBg hover:bg-accentColor focus:ring-4 focus:outline-none focus:ring-accentColorSecondary font-medium rounded-lg text-sm px-5 py-2.5 text-center">Read more...</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Project 3 -->
-
 </div>
-<!-- Main Wrapper -->
+  
+<!-- Modal -->
+<div
+  id="project-modal"
+  tabindex="-1"
+  aria-hidden="true"
+  class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto h-full flex items-center justify-center"
+>
+  <div class="relative w-full max-w-2xl h-full">
+    <!-- Modal Content -->
+    <div class="relative bg-bgSecondaryAlt rounded-lg shadow flex flex-col h-full">
+      <!-- Modal Header -->
+      <div class="flex justify-between items-center p-4 rounded-t border-b border-gray-300">
+        <h3 class="text-xl font-semibold text-gray-200">{{ selectedProject?.title }}</h3>
+        <button
+          type="button"
+          data-modal-hide="project-modal"
+          class="text-gray-400 bg-transparent hover:bg-gray-800 hover:text-white rounded-lg text-sm p-1.5 ml-auto inline-flex items-center"
+        >
+          <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path
+              fill-rule="evenodd"
+              d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 011.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+              clip-rule="evenodd"
+            ></path>
+          </svg>
+          <span class="sr-only">Close modal</span>
+        </button>
+      </div>
 
-<!-- Modals -->
-<!-- Project 1 Modal -->
-<div id="project-1-modal" tabindex="-1" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full">
-    <div class="relative p-4 w-full max-w-lg h-full md:h-auto">
-        <!-- Modal content -->
-        <div class="relative bg-bgSecondary rounded-lg shadow">
-            <!-- Modal header -->
-            <div class="flex justify-between items-center p-5 rounded-t border-b">
-                <h3 class="text-xl font-medium text-gray-200">
-                    Shift Schedule Helper
-                </h3>
-                <button type="button" class="text-gray-400 bg-transparent hover:bg-accentColor hover:text-bgColor rounded-lg text-sm p-1.5 ml-auto inline-flex items-center transition-colors duration-500 ease-in-out focus:ring-4 focus:ring-accentColorSecondary focus:outline-none" data-modal-toggle="project-1-modal">
-                    <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-                    <span class="sr-only">Close modal</span>
+      <!-- Modal Body -->
+        <div class="p-6 space-y-6 flex flex-col h-full overflow-auto">
+            <!-- Carousel Section -->
+            <div *ngIf="selectedProject?.carouselImages?.length > 0" id="indicators-carousel" class="relative w-full flex-shrink-0" data-carousel="static">
+            <!-- Carousel wrapper -->
+            <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+                <!-- Loop through images -->
+                <div *ngFor="let image of selectedProject.carouselImages; let i = index" 
+                    [class.hidden]="i !== currentImageIndex" 
+                    class="duration-700 ease-in-out">
+                <img [src]="image" 
+                    class="absolute block w-full h-full object-contain -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" 
+                    alt="carousel image {{ i + 1 }}" 
+                    (click)="openImageModal(image)">
+                </div>
+            </div>
+        
+            <!-- Slider indicators -->
+            <div class="absolute z-30 flex -translate-x-1/2 space-x-3 rtl:space-x-reverse bottom-5 left-1/2">
+                <button *ngFor="let image of selectedProject.carouselImages; let i = index" 
+                        type="button" 
+                        class="w-3 h-3 rounded-full" 
+                        [attr.aria-current]="currentImageIndex === i ? 'true' : 'false'" 
+                        [attr.aria-label]="'Slide ' + (i + 1)" 
+                        (click)="currentImageIndex = i" 
+                        [ngClass]="{'bg-white': currentImageIndex !== i, 'bg-gray-500': currentImageIndex === i}">
                 </button>
             </div>
-            <!-- Modal body -->
-            <div class="p-6 space-y-6">
-                <!-- Carousel Starts Here -->
-                <div id="default-carousel" class="relative" data-carousel="slide">
-                    <!-- Carousel wrapper -->
-                    <div class="relative h-60 overflow-hidden rounded-lg lg:h-96">
-                        <!-- Item 1 -->
-                        <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                            <img src="../../../../assets/img/projects/shiftschedule/dashboard.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                        </div>
-                        <!-- Item 2 -->
-                        <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                            <img src="../../../../assets/img/projects/shiftschedule/shifts_1.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                        </div>
-                        <!-- Item 3 -->
-                        <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                            <img src="../../../../assets/img/projects/shiftschedule/shifts_2.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                        </div>
-                        <!-- Item 4 -->
-                        <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                            <img src="../../../../assets/img/projects/shiftschedule/stats.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                        </div>
-                        <!-- Item 5 -->
-                        <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                            <img src="../../../../assets/img/projects/shiftschedule/settings.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                        </div>
-                    </div>
-                    <!-- Slider indicators -->
-                    <div class="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2">
-                        <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 1" data-carousel-slide-to="0"></button>
-                        <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
-                        <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
-                        <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 4" data-carousel-slide-to="3"></button>
-                    </div>
-                    <!-- Slider controls -->
-                    <button type="button" class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
-                        <span class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-gray-800/30 group-hover:bg-gray-800/50 group-focus:ring-4 group-focus:ring-gray-600 group-focus:outline-none">
-                            <svg aria-hidden="true" class="w-5 h-5 text-bgColor sm:w-6 sm:h-6 dark:text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
-                            <span class="sr-only">Previous</span>
-                        </span>
-                    </button>
-                    <button type="button" class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
-                        <span class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-gray-800/30 group-hover:bg-gray-800/50 group-focus:ring-4 group-focus:ring-gray-600 group-focus:outline-none">
-                            <svg aria-hidden="true" class="w-5 h-5 text-bgColor sm:w-6 sm:h-6 dark:text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                            <span class="sr-only">Next</span>
-                        </span>
-                    </button>
-                </div>
-                <!-- Carousel Ends Here -->
-                <div class="text-gray-200">
-                    <p class="text-base leading-relaxed text-gray-300">
-                        This is an Android application developed using Android Studio. It is still a work in progress. So far the front end is completed, and I have started working on the backend part. The goal is to scan my work schedule from my part time job, and have the app automatically populate all the data using machine learning, and keep track of all the work hours, shifts, total hours worked in a week etc.
-                    </p>
-                </div>
+        
+            <!-- Slider controls -->
+            <button type="button" 
+                    class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" 
+                    data-carousel-prev 
+                    (click)="currentImageIndex = (currentImageIndex - 1 + selectedProject.carouselImages.length) % selectedProject.carouselImages.length">
+                <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
+                </svg>
+                <span class="sr-only">Previous</span>
+                </span>
+            </button>
+            <button type="button" 
+                    class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" 
+                    data-carousel-next 
+                    (click)="currentImageIndex = (currentImageIndex + 1) % selectedProject.carouselImages.length">
+                <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+                </svg>
+                <span class="sr-only">Next</span>
+                </span>
+            </button>
             </div>
-            <!-- Modal footer -->
-            <div class="flex items-center justify-between p-6 space-x-2 rounded-b border-t border-gray-200 dark:border-gray-600">
-                <a href="https://github.com/NaeemKhan14/Shift-Schedules" target="_blank" class="disabled shadow-md bg-btnBg text-gray-100 focus:ring-4 focus:ring-accentColorSecondary focus:outline-none hover:bg-accentColor hover:text-bgColor transition-colors duration-500 ease-in-out font-medium rounded-lg text-sm px-5 py-2.5 text-center">Source Code</a>
-                <button type="button" data-modal-toggle="project-2-modal" class="disabled shadow-md bg-btnBg text-gray-100 focus:ring-4 focus:ring-accentColorSecondary focus:outline-none hover:bg-accentColor hover:text-bgColor transition-colors duration-500 ease-in-out font-medium rounded-lg text-sm px-5 py-2.5 text-center">Close</button>
+        
+            <!-- Description Section -->
+            <div class="flex flex-col mt-auto">
+            <p class="text-gray-300 break-words overflow-auto h-full">
+                {{ selectedProject?.details }}
+            </p>
             </div>
         </div>
-    </div>
-</div>
-<!-- Project 1 Modal -->
-<!-- Project 2 Modal -->
-<div id="project-2-modal" tabindex="-1" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full">
-    <div class="relative p-4 w-full max-w-7xl h-full md:h-auto">
-        <!-- Modal content -->
-        <div class="relative bg-bgSecondary rounded-lg shadow">
-            <!-- Modal header -->
-            <div class="flex justify-between items-center p-5 rounded-t border-b">
-                <h3 class="text-xl font-medium text-gray-200">
-                    Athena
-                </h3>
-                <button type="button" class="text-gray-400 bg-transparent hover:bg-accentColor hover:text-bgColor rounded-lg text-sm p-1.5 ml-auto inline-flex items-center transition-colors duration-500 ease-in-out focus:ring-4 focus:ring-accentColorSecondary focus:outline-none" data-modal-toggle="project-2-modal">
-                    <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-                    <span class="sr-only">Close modal</span>
-                </button>
-            </div>
-            <!-- Modal body -->
-            <div class="p-6 space-y-6">
-                <!-- Carousel Starts Here -->
-                <div id="default-carousel" class="relative" data-carousel="slide">
-                    <!-- Carousel wrapper -->
-                    <div class="relative h-60 overflow-hidden rounded-lg lg:h-96">
-                        <!-- Item 1 -->
-                        <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                            <img src="../../../../assets/img/projects/athena/1.1.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                        </div>
-                        <!-- Item 2 -->
-                        <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                            <img src="../../../../assets/img/projects/athena/1.2.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                        </div>
-                        <!-- Item 3 -->
-                        <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                            <img src="../../../../assets/img/projects/athena/2.1.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                        </div>
-                        <!-- Item 4 -->
-                        <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                            <img src="../../../../assets/img/projects/athena/2.2.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                        </div>
-                        <!-- Item 5 -->
-                        <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                            <img src="../../../../assets/img/projects/athena/3.1.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                        </div>
-                        <!-- Item 6 -->
-                        <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                            <img src="../../../../assets/img/projects/athena/3.2.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                        </div>
-                    </div>
-                    <!-- Slider indicators -->
-                    <div class="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2">
-                        <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 1" data-carousel-slide-to="0"></button>
-                        <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
-                        <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
-                        <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 4" data-carousel-slide-to="3"></button>
-                        <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 5" data-carousel-slide-to="4"></button>
-                        <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 6" data-carousel-slide-to="5"></button>
-                    </div>
-                    <!-- Slider controls -->
-                    <button type="button" class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
-                        <span class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-gray-800/30 group-hover:bg-gray-800/50 group-focus:ring-4 group-focus:ring-gray-600 group-focus:outline-none">
-                            <svg aria-hidden="true" class="w-5 h-5 text-bgColor sm:w-6 sm:h-6 dark:text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
-                            <span class="sr-only">Previous</span>
-                        </span>
-                    </button>
-                    <button type="button" class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
-                        <span class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-gray-800/30 group-hover:bg-gray-800/50 group-focus:ring-4 group-focus:ring-gray-600 group-focus:outline-none">
-                            <svg aria-hidden="true" class="w-5 h-5 text-bgColor sm:w-6 sm:h-6 dark:text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                            <span class="sr-only">Next</span>
-                        </span>
-                    </button>
-                </div>
-                <!-- Carousel Ends Here -->
-                <div class="text-gray-200">
-                    <p class="text-base leading-relaxed text-gray-300">
-                        Athena is an ERP system I developed for Archirodon Overseas while working for them as a Full-Stack Developer. It is designed using Django Rest Framework as the back-end API server, Angular 14 as the front-end, and PostgreSQL as the main database.
-                    </p>
-                </div>
-            </div>
-            <!-- Modal footer -->
-            <div class="flex items-center p-6 space-x-2 rounded-b border-t border-gray-200 dark:border-gray-600">
-                <button type="button" data-modal-toggle="project-1-modal" class="disabled shadow-md bg-btnBg text-gray-100 focus:ring-4 focus:ring-accentColorSecondary focus:outline-none hover:bg-accentColor hover:text-bgColor transition-colors duration-500 ease-in-out font-medium rounded-lg text-sm px-5 py-2.5 text-center">Close</button>
-            </div>
+        
+        <!-- Footer -->
+        <div class="bg-bgSecondaryAlt text-white p-4 text-center border-t border-gray-300">
+            <a
+                *ngIf="selectedProject?.link"
+                [href]="selectedProject?.link"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-white bg-btnBg hover:bg-accentColor focus:ring-4 focus:outline-none focus:ring-accentColorSecondary font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                >
+                Source Code
+                </a>
         </div>
-    </div>
-</div>
-<!-- Project 2 Modal -->
 
-<!-- Project 3 Modal -->
-<div id="project-3-modal" tabindex="-1" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full">
-    <div class="relative p-4 w-full max-w-4xl h-full md:h-auto">
-        <!-- Modal content -->
-        <div class="relative bg-bgSecondary rounded-lg shadow">
-            <!-- Modal header -->
-            <div class="flex justify-between items-center p-5 rounded-t border-b">
-                <h3 class="text-xl font-medium text-gray-200">
-                    Home Media Server
-                </h3>
-                <button type="button" class="text-gray-400 bg-transparent hover:bg-accentColor hover:text-bgColor rounded-lg text-sm p-1.5 ml-auto inline-flex items-center transition-colors duration-500 ease-in-out focus:ring-4 focus:ring-accentColorSecondary focus:outline-none" data-modal-toggle="project-3-modal">
-                    <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-                    <span class="sr-only">Close modal</span>
-                </button>
-            </div>
-            <!-- Modal body -->
-            <div class="p-6 space-y-6">
-                <p class="text-base leading-relaxed text-gray-300">
-                    This is a Django project which is WIP. So far I have implemented the OAuth2.0 from MyAnimeList.net's API, and through that a user token is generated for persistent login.
-                    <br><br>
-                    The goal of this web app is to automatically sort the scores in my list since manually doing them is not feasible (as I have hundreds of entries in my list). Also it is to provide me with updates and recommendations based on my preferences. I am creating this app with reusability in mind, so any user can use it; not just me.
-                </p>
-            </div>
-            <!-- Modal footer -->
-            <div class="flex items-center justify-between p-6 space-x-2 rounded-b border-t border-gray-200 dark:border-gray-600">
-                <a href="https://github.com/NaeemKhan14/MAL_Tools" target="_blank" class="shadow-md bg-btnBg text-gray-100 focus:ring-4 focus:ring-accentColorSecondary focus:outline-none hover:bg-accentColor hover:text-bgColor transition-colors duration-500 ease-in-out font-medium rounded-lg text-sm px-5 py-2.5 text-center">Source Code</a>
-                <button type="button" data-modal-toggle="project-3-modal" class="disabled shadow-md bg-btnBg text-gray-100 focus:ring-4 focus:ring-accentColorSecondary focus:outline-none hover:bg-accentColor hover:text-bgColor transition-colors duration-500 ease-in-out font-medium rounded-lg text-sm px-5 py-2.5 text-center">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Project 3 Modal -->
-
-<!-- Modals -->
+<!-- Modal for enlarged image -->
+<div *ngIf="selectedImage" class="fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center" (click)="closeImageModal()">
+    <img [src]="selectedImage" class="max-w-full max-h-full object-contain cursor-pointer" alt="Enlarged image">
+  </div>
