@@ -1,5 +1,5 @@
 # First stage build
-FROM node:23-alpine AS builder
+FROM node:22.13-alpine AS builder
 
 # Create application DIR
 WORKDIR /usr/src/app
