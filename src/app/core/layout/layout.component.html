@@ -11,9 +11,13 @@
                         <h1 class="text-6xl text-accentColor">Naeem Khan</h1>
                         <p class="text-gray-300 text-4xl">Full-Stack Developer</p>
                         <div class="inline-flex justify-center lg:justify-start">
-                            <a href="../../../assets/files/Naeem Ullah Khan CV.pdf" target="_blank"
+                            <a href="../../../assets/files/Naeem Khan CV.pdf" target="_blank"
                             class="mt-3 rounded-lg px-5 py-2.5 shadow-md bg-btnBg text-gray-100 focus:ring-4 focus:ring-accentColorSecondary focus:outline-none hover:bg-accentColor hover:text-bgColor transition-colors duration-500 ease-in-out">
                                 Download CV
+                            </a>
+                            <a href="../../../assets/files/Naeem Khan CV (Cyber Security).pdf" target="_blank"
+                            class="mt-3 rounded-lg px-5 py-2.5 shadow-md bg-btnBg text-gray-100 ml-3 focus:ring-4 focus:ring-accentColorSecondary focus:outline-none hover:bg-accentColor hover:text-bgColor transition-colors duration-500 ease-in-out">
+                                CV (Cyber Security)
                             </a>
                         </div>
                     </div>
@@ -30,7 +34,7 @@
                                 <path
                                     d="M25,2C12.318,2,2,12.317,2,25s10.318,23,23,23s23-10.317,23-23S37.682,2,25,2z M18,35h-4V20h4V35z M16,17 c-1.105,0-2-0.895-2-2c0-1.105,0.895-2,2-2s2,0.895,2,2C18,16.105,17.105,17,16,17z M37,35h-4v-5v-2.5c0-1.925-1.575-3.5-3.5-3.5 S26,25.575,26,27.5V35h-4V20h4v1.816C27.168,20.694,28.752,20,30.5,20c3.59,0,6.5,2.91,6.5,6.5V35z" />
                             </svg></a>
-                        <a href="#" class="focus:ring-4 focus:ring-accentColorSecondary focus:outline-none"><svg
+                        <a href="https://www.instagram.com/charming.potato_/" class="focus:ring-4 focus:ring-accentColorSecondary focus:outline-none"><svg
                                 class="lg:mt-3 fill-gray-100 hover:fill-accentColor transition-colors duration-500 ease-in-out"
                                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="35px" height="35px">
                                 <path
@@ -97,21 +101,46 @@
 
     <!-- About Section Starts Here -->
     <section class="mt-20 px-4 py-8 2xl:mx-44" id="about" data-aos="fade-left" data-aos-duration="1000">
-
         <h1 class="text-gray-200 text-4xl text-center lg:text-left mb-10 lg:ml-3">About Me</h1>
         <!-- Internal Wrapper -->
-        <div class="flex flex-col lg:flex-row max-w-screen-xl lg:max-w-none justify-between gap-y-10">
+        <div class="flex flex-col lg:flex-row max-w-screen-xl lg:max-w-none justify-between gap-10 lg:gap-16">
             <!-- Left Side -->
-            <div class="inline-flex justify-center lg:justify-start">
-                <object type="image/svg+xml" data="../../../assets/img/about.svg">Your browser does not support SVG</object>
+            <div class="flex justify-center lg:justify-start flex-shrink-0">
+                <object
+                    type="image/svg+xml"
+                    data="../../../assets/img/about.svg"
+                    class="w-72 lg:w-96"
+                    aria-label="About Me Illustration"
+                >
+                    Your browser does not support SVG
+                </object>
             </div>
             <!-- Left Side -->
 
             <!-- Right Side -->
-            <div class="flex p-6 w-full lg:ml-36 text-gray-200 bg-bgSecondary rounded-lg shadow-md">
-                <p>I am Naeem Khan, currently living in Berlin, Germany. I am an MSc student at SRH Berlin University of Applied Sciences with major in Cyber Security. I have worked in Dubai, United Arab Emirates for about two years in various software development positions. My preferred language of choice is Python, and my main stack is Django, PostgreSQL, Angular.
-                  <br><br>
-                  I am also a networking & security enthusiast, and frequently take part in beginner/medium difficulty level of CTF events.
+            <div class="flex-1 p-6 text-gray-200 bg-bgSecondary rounded-lg shadow-md">
+                <p class="leading-relaxed text-justify">
+                    Hello, I'm Naeem Khan, a passionate and dedicated software developer and cybersecurity enthusiast based
+                    in Berlin, Germany. I hold a Master of Science in Computer Science with a specialization in Cybersecurity
+                    from SRH Berlin University of Applied Sciences, where I honed my skills in secure coding practices,
+                    network security, and risk management. My academic journey, combined with hands-on experience, has equipped
+                    me with a robust foundation in building secure and efficient software solutions.
+                    <br><br>
+                    I bring over two years of professional experience as a Software Developer, gained during my time in Dubai,
+                    United Arab Emirates, where I worked on diverse projects involving Python, Django, PostgreSQL, and Angular.
+                    My technical expertise, coupled with a problem-solving mindset, enables me to develop scalable applications
+                    that meet both functional and security requirements.
+                    <br><br>
+                    Beyond development, I am deeply passionate about cybersecurity. I actively participate in Capture the Flag
+                    (CTF) events, tackling beginner to medium-difficulty challenges that keep me sharp and updated on emerging
+                    threats and defensive techniques. These experiences fuel my drive to create systems that are not only
+                    innovative but also resilient against cyber risks.
+                    <br><br>
+                    I'm currently seeking opportunities where I can combine my software development expertise and cybersecurity
+                    knowledge to deliver impactful solutions. Whether it's developing secure applications, analyzing vulnerabilities,
+                    or collaborating with like-minded professionals, I'm always eager to make a meaningful contribution.
+                    <br><br>
+                    Let's build something secure and extraordinary together!
                 </p>
             </div>
             <!-- Right Side -->
@@ -119,6 +148,7 @@
         <!-- Internal Wrapper -->
     </section>
     <!-- About Section Ends Here -->
+
 
     <!-- Stack Icons Starts Here -->
     <section class="mt-10 px-4 py-8 2xl:mx-44" data-aos="fade-right" data-aos-duration="1000">
@@ -207,7 +237,7 @@
                             </svg>
                         </span>
                         <h3 class="flex items-center mb-1 text-lg font-semibold text-gray-200">MSc: Computer Science (Cyber Security)</h3>
-                        <time class="block mb-2 text-sm leading-none text-gray-300">April 2023 - Present</time>
+                        <time class="block mb-2 text-sm leading-none text-gray-300">April 2023 - October 2024</time>
                         <p class="text-gray-400">SRH Berlin University of Applied Sciences</p>
                         <p class="mb-4 text-gray-500">Berlin, Germany</p>
                     </li>

@@ -1,5 +1,5 @@
 # First stage build
-FROM node:19.4-alpine AS builder
+FROM node:22.13-alpine AS builder
 
 # Create application DIR
 WORKDIR /usr/src/app
@@ -15,11 +15,14 @@ COPY . .
 
 RUN npm run build -- --output-path=./dist/out --configuration production
 
-# Second stage build 
-FROM nginx:1.23.3-alpine
+# Second stage build
+FROM nginx:1.27.3-alpine
 
 # Remove default nginx website
 RUN rm -rf /usr/share/nginx/html/*
 
 # Copy output directory from builder to nginx image.
-COPY --from=builder /usr/src/app/dist/out /usr/share/nginx/html
+COPY --from=builder /usr/src/app/dist/out/browser /usr/share/nginx/html
+
+# Expose the port where we can find this container running
+EXPOSE 80
