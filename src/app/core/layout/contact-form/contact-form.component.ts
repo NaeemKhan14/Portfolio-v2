@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-contact-form',
-  templateUrl: './contact-form.component.html'
+    selector: 'app-contact-form',
+    templateUrl: './contact-form.component.html',
+    standalone: false
 })
 export class ContactFormComponent implements OnInit {
 

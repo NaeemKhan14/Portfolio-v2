@@ -1,11 +1,13 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
+import { initFlowbite } from 'flowbite';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.scss'],
+    standalone: false
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'Naeem Khan';
   isVisible = false;
   gotoTopPosVisible = 100;
@@ -17,6 +19,10 @@ export class AppComponent {
     const scrollPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
     
     this.isVisible = true ? scrollPosition >= this.gotoTopPosVisible : false;
+  }
+
+  ngOnInit(): void {
+    initFlowbite();
   }
 
   gotoTop() {
